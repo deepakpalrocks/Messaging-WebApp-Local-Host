@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { v4 as uuidV4 } from "uuid";
+import './Login.css'
 
 const PREFIX = "chatapp-clone-";
 export default function Login({ onIdSubmit }) {
@@ -59,20 +60,30 @@ export default function Login({ onIdSubmit }) {
   }
 
   return (
+    <div className="full">
+
+    
     <Container
-      className="align-items-center d-flex"
-      style={{ height: "100vh" }}
-    >
+      className="container"
+      // style={{ height: "100vh" }}
+    > 
+    <div className="circle circle1"></div>
+    <div className="circle circle2"></div>
+    <div className="heading"><h1>Login or Sign Up to continue</h1></div>
+      <div className="form">
+
       <Form className="w-100" onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label className="label">Enter Your Id</Form.Label>
-          <Form.Control type="text" ref={idRef}></Form.Control>
-        </Form.Group>
-        <Button type="submit">Login</Button>
+          <Form.Control className="inp" type="text" ref={idRef}></Form.Control>
+        </Form.Group> 
+        <Button className="btn" type="submit">Login</Button>
         <Button onClick={createNewId} variant="secondary">
           Create a new Id
         </Button>
       </Form>
+      </div>
     </Container>
+    </div>
   );
 }
